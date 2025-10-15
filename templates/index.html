@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Search - Knowledge Base{% endblock %}
+
+{% block content %}
+<div class="search-container">
+    <div class="hero-section">
+        <h1 class="hero-title">
+            <i class="fas fa-search"></i>
+            Knowledge Base Search
+        </h1>
+        <p class="hero-subtitle">Ask questions and get answers from your uploaded documents</p>
+    </div>
+
+    <div class="search-box-container">
+        <form id="searchForm" class="search-form">
+            <div class="search-input-group">
+                <input 
+                    type="text" 
+                    id="queryInput" 
+                    placeholder="Ask a question about your documents..." 
+                    class="search-input"
+                    autocomplete="off"
+                >
+                <button type="submit" class="search-button" id="searchButton">
+                    <i class="fas fa-paper-plane"></i>
+                    Search
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Documents Info -->
+    <div class="documents-info" id="documentsInfo">
+        <div class="info-card">
+            <i class="fas fa-folder-open"></i>
+            <div class="info-content">
+                <h3>Loaded Documents</h3>
+                <p id="documentsCount">Loading...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <div class="results-section" id="resultsSection" style="display: none;">
+        <div class="results-header">
+            <h2>Search Results</h2>
+            <div class="query-display" id="queryDisplay"></div>
+        </div>
+
+        <div class="answer-card">
+            <div class="answer-header">
+                <i class="fas fa-robot"></i>
+                <h3>Answer</h3>
+            </div>
+            <div class="answer-content" id="answerContent">
+                <!-- Answer will be inserted here -->
+            </div>
+        </div>
+
+        <div class="sources-section">
+            <h3>Sources</h3>
+            <div class="sources-grid" id="sourcesGrid">
+                <!-- Sources will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+        <div class="spinner"></div>
+        <p>Searching through documents...</p>
+    </div>
+
+    <!-- Error Message -->
+    <div class="error-message" id="errorMessage" style="display: none;">
+        <div class="error-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <div class="error-content">
+            <h3>Error</h3>
+            <p id="errorText"></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

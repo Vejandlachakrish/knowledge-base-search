@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Upload Documents - Knowledge Base{% endblock %}
+
+{% block content %}
+<div class="upload-container">
+    <div class="upload-header">
+        <h1>
+            <i class="fas fa-cloud-upload-alt"></i>
+            Upload Documents
+        </h1>
+        <p>Upload PDF and text files to build your knowledge base</p>
+    </div>
+
+    <!-- Upload Card -->
+    <div class="upload-card">
+        <div class="upload-area" id="uploadArea">
+            <i class="fas fa-file-upload upload-icon"></i>
+            <h3>Drop files here or click to upload</h3>
+            <p>Supports PDF and TXT files</p>
+            <input type="file" id="fileInput" multiple accept=".pdf,.txt" style="display: none;">
+            <button type="button" class="upload-button" onclick="document.getElementById('fileInput').click()">
+                Select Files
+            </button>
+        </div>
+
+        <!-- File List -->
+        <div class="file-list" id="fileList">
+            <h4>Selected Files</h4>
+            <div class="files-container" id="filesContainer">
+                <p class="no-files">No files selected</p>
+            </div>
+        </div>
+
+        <!-- Upload Progress -->
+        <div class="upload-progress" id="uploadProgress" style="display: none;">
+            <div class="progress-header">
+                <h4>Uploading Files</h4>
+                <span id="progressText">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <!-- Upload Actions -->
+        <div class="upload-actions">
+            <button type="button" class="process-button" id="processButton" onclick="uploadFiles()">
+                <i class="fas fa-bolt"></i>
+                Process Documents
+            </button>
+            <button type="button" class="reprocess-button" onclick="reprocessDocuments()">
+                <i class="fas fa-sync"></i>
+                Reprocess All
+            </button>
+        </div>
+    </div>
+
+    <!-- Current Documents -->
+    <div class="current-documents">
+        <h2>Current Documents in Knowledge Base</h2>
+        <div class="documents-list" id="documentsList">
+            <div class="loading-docs">
+                <i class="fas fa-spinner fa-spin"></i>
+                Loading documents...
+            </div>
+        </div>
+    </div>
+
+    <!-- Processing Status -->
+    <div class="status-message" id="statusMessage" style="display: none;">
+        <div class="status-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="status-content">
+            <h3 id="statusTitle">Success</h3>
+            <p id="statusText"></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
