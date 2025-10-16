@@ -119,5 +119,4 @@ Development tips and next steps
 - Add unit tests for key functions (text extraction, chunking, vector store creation, and API endpoints).
 - Consider swapping FAISS for a managed vector DB if you plan to scale.
 
-Contact
-If you need help updating the README or adapting the project for deployment, tell me what platform or cloud target you plan to use and I can add deployment-specific steps.
+
